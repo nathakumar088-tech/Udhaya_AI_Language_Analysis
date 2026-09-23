@@ -1,3 +1,4 @@
+// Udhaya AI Language Analysis
 const fileInput = document.getElementById("fileInput");
 const browseBtn = document.getElementById("browseBtn");
 const dropZone = document.getElementById("dropZone");
