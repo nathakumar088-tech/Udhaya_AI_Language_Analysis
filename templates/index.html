@@ -1,63 +1,308 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>Udhaya Language Analysis AI</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}"
+  >
 </head>
+
 <body>
-  <div class="orb orb-one"></div><div class="orb orb-two"></div>
+
+  <div class="orb orb-one"></div>
+  <div class="orb orb-two"></div>
+
   <main class="app-shell">
+
+    <!-- ================= HEADER ================= -->
+
     <header class="topbar">
+
       <div class="brand">
+
         <div class="logo">✦</div>
-        <div><div class="brand-name">UDHAYA</div><div class="brand-sub">LANGUAGE ANALYSIS AI</div></div>
+
+        <div>
+          <div class="brand-name">
+            UDHAYA
+          </div>
+
+          <div class="brand-sub">
+            LANGUAGE ANALYSIS AI
+          </div>
+        </div>
+
       </div>
-      <div class="status"><span></span> AI READY</div>
+
+      <div class="status">
+        <span></span>
+        AI READY
+      </div>
+
     </header>
 
+
+    <!-- ================= HERO ================= -->
+
     <section class="hero">
-      <div class="badge">⚡ MULTIMODAL • MULTILINGUAL • SMART</div>
-      <h1>Understand anything.<br><em>In your language.</em></h1>
-      <p>Paste text, upload an image or PDF, choose your language, and let AI explain it clearly.</p>
+
+      <div class="badge">
+        ⚡ MULTIMODAL • MULTILINGUAL • SMART
+      </div>
+
+      <h1>
+        Understand anything.<br>
+        <em>In your language.</em>
+      </h1>
+
+      <p>
+        Paste text, upload an image or PDF,
+        choose your language, and let AI translate it.
+      </p>
+
     </section>
+
+
+    <!-- ================= WORKSPACE ================= -->
 
     <section class="workspace">
+
+
+      <!-- INPUT CARD -->
+
       <div class="input-card">
-        <div class="card-head"><span>INPUT</span><small>Text / Image / PDF</small></div>
-        <textarea id="textInput" placeholder="Paste your text here..."></textarea>
-        <div id="dropZone" class="drop-zone">
-          <input id="fileInput" type="file" accept=".png,.jpg,.jpeg,.webp,.pdf" hidden>
-          <div class="upload-icon">↥</div>
-          <div><b>Drop a file here</b> or <button type="button" id="browseBtn">browse</button></div>
-          <small>PNG · JPG · WEBP · PDF · up to 50 MB</small>
-          <div id="fileName" class="file-name"></div>
+
+        <div class="card-head">
+
+          <span>
+            INPUT
+          </span>
+
+          <small>
+            Text / Image / PDF
+          </small>
+
         </div>
+
+
+        <!-- TEXT INPUT -->
+
+        <textarea
+          id="textInput"
+          placeholder="Paste your text here..."
+        ></textarea>
+
+
+        <!-- FILE UPLOAD -->
+
+        <div
+          id="dropZone"
+          class="drop-zone"
+        >
+
+          <input
+            id="fileInput"
+            type="file"
+            accept=".png,.jpg,.jpeg,.webp,.pdf"
+            hidden
+          >
+
+
+          <div class="upload-icon">
+            ↥
+          </div>
+
+
+          <div>
+
+            <b>
+              Drop a file here
+            </b>
+
+            or
+
+            <button
+              type="button"
+              id="browseBtn"
+            >
+              browse
+            </button>
+
+          </div>
+
+
+          <small>
+            PNG · JPG · WEBP · PDF · up to 50 MB
+          </small>
+
+
+          <div
+            id="fileName"
+            class="file-name"
+          ></div>
+
+        </div>
+
       </div>
+
+
+      <!-- CONTROL CARD -->
 
       <div class="control-card">
-        <label for="language">OUTPUT LANGUAGE</label>
-        <div class="select-wrap">🌍 <select id="language">
-          {% for lang in languages %}<option value="{{ lang }}">{{ lang }}</option>{% endfor %}
-        </select></div>
-        <button id="analyzeBtn" class="analyze"><span>✦</span> ANALYZE WITH AI <span class="arrow">→</span></button>
-        <div class="hint">Powered by Gemini • Fast multimodal analysis</div>
+
+        <label for="language">
+          OUTPUT LANGUAGE
+        </label>
+
+
+        <div class="select-wrap">
+
+          🌍
+
+          <select id="language">
+
+            {% for lang in languages %}
+
+            <option value="{{ lang }}">
+              {{ lang }}
+            </option>
+
+            {% endfor %}
+
+          </select>
+
+        </div>
+
+
+        <!-- ANALYZE -->
+
+        <button
+          id="analyzeBtn"
+          class="analyze"
+        >
+
+          <span>
+            ✦
+          </span>
+
+          ANALYZE WITH AI
+
+          <span class="arrow">
+            →
+          </span>
+
+        </button>
+
+
+        <div class="hint">
+          Powered by Gemini • Fast multilingual translation
+        </div>
+
       </div>
+
     </section>
 
-    <section id="resultCard" class="result-card hidden">
+
+    <!-- ================= RESULT ================= -->
+
+    <section
+      id="resultCard"
+      class="result-card hidden"
+    >
+
       <div class="result-head">
-        <div><span class="eyebrow">AI EXPLANATION</span><h2>Here’s what I found</h2></div>
-        <div class="result-actions"><button id="speakBtn">🔊 Voice</button><button id="copyBtn">📋 Copy</button></div>
+
+
+        <div>
+
+          <span class="eyebrow">
+            AI TRANSLATION
+          </span>
+
+          <h2>
+            Translation Result
+          </h2>
+
+        </div>
+
+
+        <div class="result-actions">
+
+
+          <!-- VOICE -->
+
+          <button
+            id="speakBtn"
+            type="button"
+          >
+            🔊 Voice
+          </button>
+
+
+          <!-- COPY -->
+
+          <button
+            id="copyBtn"
+            type="button"
+          >
+            📋 Copy
+          </button>
+
+
+        </div>
+
       </div>
-      <div id="result" class="result-body"></div>
+
+
+      <!-- RESULT TEXT -->
+
+      <div
+        id="result"
+        class="result-body"
+      ></div>
+
     </section>
 
-    <footer>Udhaya Language Analysis AI <span>•</span> Built for simple, fast understanding</footer>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+      Udhaya Language Analysis AI
+
+      <span>
+        •
+      </span>
+
+      Built for simple, fast translation
+
+    </footer>
+
   </main>
-  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+
+  <!-- IMPORTANT:
+       Existing file is static/app.js
+       NOT static/js/app.js
+  -->
+
+  <script
+    src="{{ url_for('static', filename='app.js') }}"
+  ></script>
+
 </body>
+
 </html>
