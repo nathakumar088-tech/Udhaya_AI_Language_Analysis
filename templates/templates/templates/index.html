@@ -27,8 +27,7 @@
 
   <main class="app-shell">
 
-    <!-- ================= HEADER ================= -->
-
+    <!-- HEADER -->
     <header class="topbar">
 
       <div class="brand">
@@ -55,8 +54,7 @@
     </header>
 
 
-    <!-- ================= HERO ================= -->
-
+    <!-- HERO -->
     <section class="hero">
 
       <div class="badge">
@@ -76,13 +74,10 @@
     </section>
 
 
-    <!-- ================= WORKSPACE ================= -->
-
+    <!-- WORKSPACE -->
     <section class="workspace">
 
-
       <!-- INPUT CARD -->
-
       <div class="input-card">
 
         <div class="card-head">
@@ -99,7 +94,6 @@
 
 
         <!-- TEXT INPUT -->
-
         <textarea
           id="textInput"
           placeholder="Paste your text here..."
@@ -107,7 +101,6 @@
 
 
         <!-- FILE UPLOAD -->
-
         <div
           id="dropZone"
           class="drop-zone"
@@ -120,11 +113,9 @@
             hidden
           >
 
-
           <div class="upload-icon">
             ↥
           </div>
-
 
           <div>
 
@@ -143,11 +134,9 @@
 
           </div>
 
-
           <small>
             PNG · JPG · WEBP · PDF · up to 50 MB
           </small>
-
 
           <div
             id="fileName"
@@ -160,13 +149,11 @@
 
 
       <!-- CONTROL CARD -->
-
       <div class="control-card">
 
         <label for="language">
           OUTPUT LANGUAGE
         </label>
-
 
         <div class="select-wrap">
 
@@ -187,11 +174,11 @@
         </div>
 
 
-        <!-- ANALYZE -->
-
+        <!-- ANALYZE BUTTON -->
         <button
           id="analyzeBtn"
           class="analyze"
+          type="button"
         >
 
           <span>
@@ -216,15 +203,13 @@
     </section>
 
 
-    <!-- ================= RESULT ================= -->
-
+    <!-- RESULT -->
     <section
       id="resultCard"
       class="result-card hidden"
     >
 
       <div class="result-head">
-
 
         <div>
 
@@ -241,9 +226,7 @@
 
         <div class="result-actions">
 
-
           <!-- VOICE -->
-
           <button
             id="speakBtn"
             type="button"
@@ -253,7 +236,6 @@
 
 
           <!-- COPY -->
-
           <button
             id="copyBtn"
             type="button"
@@ -261,14 +243,12 @@
             📋 Copy
           </button>
 
-
         </div>
 
       </div>
 
 
       <!-- RESULT TEXT -->
-
       <div
         id="result"
         class="result-body"
@@ -277,8 +257,7 @@
     </section>
 
 
-    <!-- ================= FOOTER ================= -->
-
+    <!-- FOOTER -->
     <footer>
 
       Udhaya Language Analysis AI
@@ -294,13 +273,10 @@
   </main>
 
 
-  <!-- IMPORTANT:
-       Existing file is static/app.js
-       NOT static/js/app.js
-  -->
-
+  <!-- JAVASCRIPT -->
+  <!-- app.js is inside static/js/app.js -->
   <script
-    src="{{ url_for('static', filename='app.js') }}"
+    src="{{ url_for('static', filename='js/app.js') }}"
   ></script>
 
 </body>
